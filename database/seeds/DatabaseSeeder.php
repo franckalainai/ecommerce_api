@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // desactiver temporairement les clés étrangeres
-        DB::statement('SET FOREIGN_KEY_CHEKS =0');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         User::truncate();
         Category::truncate();
