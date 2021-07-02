@@ -16,6 +16,8 @@ Route::resource('sellers', 'Seller\SellerController', ['only' => ['index', 'show
 
 // prendre les methodes index et show
 Route::resource('transactions', 'Transaction\TransactionController', ['only' => ['index', 'show']]);
+Route::resource('transactions.categories', 'Transaction\TransactionCategoryController', ['only' => ['index']]);
+Route::resource('transactions.seller', 'Transaction\TransactionSellerController', ['only' => ['index']]);
 
 // prendre en compte toutes les methodes sauf create et edit
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);

@@ -19,6 +19,6 @@ class Category extends Model
     // les produits sont liés à plusieurs categories
     public function products()
     {
-        return $this->belongsToMany(Produc::class);
+        return $this->belongsToMany(Product::class);
     }
 }
