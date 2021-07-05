@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 
 // prendre les methodes index et show
 Route::resource('buyers', 'Buyer\BuyerController', ['only' => ['index', 'show']]);
+Route::resource('buyers.transactions', 'Buyer\BuyerTransactionController', ['only' => ['index']]);
+Route::resource('buyers.products', 'Buyer\BuyerProductController', ['only' => ['index']]);
+
 
 // prendre en compte toutes les methodes sauf create et edit
 Route::resource('categories', 'Category\CategoryController', ['except' => ['create', 'edit']]);
