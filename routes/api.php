@@ -39,3 +39,4 @@ Route::resource('transactions.seller', 'Transaction\TransactionSellerController'
 // prendre en compte toutes les methodes sauf create et edit
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
 Route::name('verify')->get('users/verify/{token}', 'User\UserController@verify');
+Route::name('resend')->get('users/{user}/resend', 'User\UserController@resend');
