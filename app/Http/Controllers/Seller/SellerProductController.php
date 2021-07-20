@@ -20,6 +20,9 @@ class SellerProductController extends ApiController
         parent::__construct();
         $this->middleware('transform.input:' . ProductTransformer::class)->only(['store', 'update']);
         $this->middleware('scope:manage-products')->except('index');
+        $this->middleware('can:sale,seller')->only(['store']);
+        $this->middleware('can:edit-product,seller')->only(['update']);
+        $this->middleware('can:delete-product,seller')->only(['destroy']);
     }
     /**
      * Display a listing of the resource.
