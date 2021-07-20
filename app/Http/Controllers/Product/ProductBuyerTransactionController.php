@@ -18,6 +18,7 @@ class ProductBuyerTransactionController extends ApiController
     {
         parent::__construct();
         $this->middleware('transform.input:' . TransactionTransformer::class)->only(['store']);
+        $this->middleware('scope:purchase-product')->only(['store']);
     }
 
     /**
@@ -51,7 +52,7 @@ class ProductBuyerTransactionController extends ApiController
         }
 
         if ($product->quantity < $request->quantity) {
-            return $this->errorResponse('This produtc does not have enough for the transaction', 409);
+            return $this->errorResponse('This product does not have enough for the transaction', 409);
         }
 
         return DB::transaction(function () use ($request, $product, $buyer) {
